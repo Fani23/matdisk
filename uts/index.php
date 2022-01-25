@@ -6,8 +6,8 @@ if(mysqli_connect_errno($conn)){
 	echo "error";
 }
 
-$get_username = $_GET['username'];
-$get_password = $_GET['password'];
+$get_username =   $conn->real_escape_string($_GET['username']); 
+$get_password =   $conn->real_escape_string($_GET['password']); 
 
 $sql_select = mysqli_query($conn, "SELECT * FROM user WHERE username='{$get_username}' AND password='{$get_password}'" );
 
